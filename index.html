@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alumnos</title>
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:wght@350&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div><h1>Alumnos</h1></div>
+            <nav>
+                <div><a href="#alta-Alumno">Agregar</a></div>
+                <div><a href="#inscribir-AClase">Inscribir a clase</a></div>
+                <div><a href="#asignar-Calificaciones">Asingar Calificaciones</a></div>
+                <div><a href="#alta-Grupo">Crear grupo</a></div>
+                <div><a href="#grupos">Grupos</a></div>
+            </nav>
+        </header>
+        <main>
+            <article id="alta-Alumno">
+                <div>
+                    <h3>Registrar Alumno</h3>
+                </div>
+                <div>
+                    <section>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre">
+                    </section>
+                
+                    <section>
+                        <label for="primer-Apellido">Primer Apellido</label>
+                        <input type="text" id="primer-Apellido">
+                    </section>
+
+                    <section>
+                        <label for="segundo-Apellido">Segundo Apellido</label>
+                        <input type="text" id="segundo-Apellido">
+                    </section>
+                    
+                    <section>
+                        <label for="edad">Edad</label>
+                        <input type="number" name="edad" id="edad" min="0" max="20">
+                    </section>
+                    
+                    <section id="boton">
+                        <button id="agregar" onclick="recuperarValores()">Agregar</button>
+                    </section>
+                </div>
+            </article>
+
+            <article id="inscribir-AClase">
+                <div><h3>Inscribir a materias</h3></div>
+                <div id="tabla-container"></div>
+            </article>
+
+            <article id="asignar-Calificaciones">
+                <div>
+                    <div id="buscadores">
+                            <section>
+                            <h3><label for="buscarAlumno">Buscar por ID</label></h3>
+                                <input type="search" name="alumnoBuscado" id="alumnoBuscado">
+                                <button onclick="buscarAlumno()">Buscar</button>
+                        </section>
+                        
+                        <section>
+                            <h3><label for="buscarAlumnoPorNombre">Buscar por Nombre</label></h3>
+                                <input type="search" name="alumnoBuscadoNombre" id="alumnoBuscadoNombre">
+                                <button onclick="buscarAlumnoPorNombre()">Buscar</button>
+                        </section>
+                    </div>
+                </div>
+
+                <div id="tabla-container2"></div>
+            </article>
+
+            <article id="alta-Grupo">
+                <div>
+                    <label for="nombreGrupo">Nuevo grupo</label>
+                    <input type="text" id="nombreGrupo">
+                    <button onclick="crearGrupo()">Crear Grupo</button>
+                </div>
+                
+                <div id="tabla-container3">
+                    <table id="tabla-alumnos" border="1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Edad</th>
+                                <th>Materias</th>
+                                <th>Calificaciones</th>
+                                <th>Seleccionar Grupo</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article id="grupos">
+                <div>
+                    <label for="selectGrupo">Seleccionar Grupo:</label>
+                        <select id="selectGrupo" onchange="filtrarAlumnosPorGrupo()">
+                            <option value="todos">Selecciona</option>
+                        </select>
+                </div>
+                <div id="tabla-alumnos-container">
+                    <!-- Aquí se generará la tabla de alumnos -->
+                </div>
+                <div id="operaciones">
+                    <button onclick="ordenarPorPromedioMayor()" class="btn success">Ordenar por Promedio Mayor</button>
+                    <button onclick="ordenarPorPromedioMenor()" class="btn success">Ordenar por Promedio Menor</button>
+                    <button onclick="ordenarPorEdad()" class="btn success">Ordenar por Edad pequeña</button>
+                    <button onclick="calcularPromedioGrupoGeneral()" class="btn success">Calcular Promedio Grupo General</button>
+                </div>
+            </article>
+        </main>
+        <script src="operacionesAlumnos.js"></script>
+        <script src="script.js"></script>
+        <script src="tabla.js"></script>
+    </body>
+    
+    <footer></footer>   
+</html>
